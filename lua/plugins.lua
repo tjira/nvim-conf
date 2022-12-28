@@ -10,9 +10,12 @@ return require('packer').startup({function(use)
 
     -- Comment
     use { 'terrortylor/nvim-comment' }
-    
+
     -- Hop
     use { 'phaazon/hop.nvim' }
+
+    -- Image
+    use { 'samodostal/image.nvim', requires = { 'nvim-lua/plenary.nvim', 'm00qek/baleia.nvim' } }
 
     -- LSP Config
     use { 'neovim/nvim-lspconfig' }
@@ -45,7 +48,10 @@ return require('packer').startup({function(use)
     use { 'nvim-treesitter/nvim-treesitter', run = function()
         require('nvim-treesitter.install').update({ with_sync = true })()
     end}
-        
+    
+    -- Undotree
+    use { 'mbbill/undotree' }
+
     -- Packer
     use { 'wbthomason/packer.nvim' }
 end,

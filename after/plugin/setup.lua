@@ -40,6 +40,20 @@ require('cmp').setup{
 -- Hop
 require('hop').setup{}
 
+-- Image
+require('image').setup {
+    render = {
+        min_padding = 2,
+        show_label = false,
+        use_dither = true,
+        foreground_color = true,
+        background_color = true
+    },
+    events = {
+        update_on_nvim_resize = true
+    }
+}
+
 -- LSP Config Pyright
 require('lspconfig')['pyright'].setup{
     capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -87,7 +101,7 @@ require('telescope').setup{
 -- Toggleterm
 require('toggleterm').setup{
     direction = 'horizontal',
-    open_mapping = [[<F1>]]
+    open_mapping = '<F1>'
 }
 
 -- Treesitter
