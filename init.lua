@@ -31,5 +31,5 @@ vim.cmd('let g:loaded_ruby_provider = 0')
 vim.cmd('set shortmess+=I')
 vim.cmd('set noshowmode')
 
-require('keymaps')
 require('plugins')
+require('keymaps')

@@ -1,4 +1,7 @@
 return require('packer').startup({function(use)
+    -- Packer
+    use { 'wbthomason/packer.nvim' }
+
     -- Autopairs
     use { 'windwp/nvim-autopairs' }
 
@@ -51,9 +54,6 @@ return require('packer').startup({function(use)
     
     -- Undotree
     use { 'mbbill/undotree' }
-
-    -- Packer
-    use { 'wbthomason/packer.nvim' }
 end,
 config = {
     display = {
