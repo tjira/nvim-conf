@@ -17,9 +17,6 @@ return require('packer').startup({function(use)
     -- Hop
     use { 'phaazon/hop.nvim' }
 
-    -- Image
-    use { 'samodostal/image.nvim', requires = { 'nvim-lua/plenary.nvim', 'm00qek/baleia.nvim' } }
-
     -- LSP Config
     use { 'neovim/nvim-lspconfig' }
 
