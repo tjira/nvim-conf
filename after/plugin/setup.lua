@@ -1,5 +1,7 @@
+-- Autopaird
 require("nvim-autopairs").setup{}
 
+-- Bufferline
 require('bufferline').setup{
     options = {
         separator_style = 'slant',
@@ -8,8 +10,10 @@ require('bufferline').setup{
     }
 }
 
+-- Comment
 require('nvim_comment').setup{}
 
+-- CMP
 require('cmp').setup{
     snippet = {
         expand = function(args)
@@ -33,24 +37,30 @@ require('cmp').setup{
     }
 }
 
+-- Hop
 require('hop').setup{}
 
+-- LSP Config Pyright
 require('lspconfig')['pyright'].setup{
     capabilities = require('cmp_nvim_lsp').default_capabilities()
 }
 
+-- LSP Config Clangd
 require('lspconfig')['clangd'].setup{
     capabilities = require('cmp_nvim_lsp').default_capabilities()
 }
 
+-- Lualine
 require('lualine').setup{
     options = {
         theme = 'onedark'
     }
 }
 
+-- Noice
 require('noice').setup{}
 
+-- Onedark
 require('onedark').setup{
     style = 'deep',
     diagnostics = {
@@ -60,8 +70,10 @@ require('onedark').setup{
     }
 }
 
+-- Surround
 require('nvim-surround').setup{}
 
+-- Telescope
 require('telescope').setup{
     defaults = {
         mappings = {
@@ -72,11 +84,13 @@ require('telescope').setup{
     }
 }
 
+-- Toggleterm
 require('toggleterm').setup{
     direction = 'horizontal',
     open_mapping = [[<F1>]]
 }
 
+-- Treesitter
 require('nvim-treesitter.configs').setup {
     ensure_installed = { 'bash', 'c', 'cpp', 'help', 'lua', 'markdown', 'markdown_inline', 'python', 'regex', 'vim' },
     sync_install = false,
@@ -86,5 +100,6 @@ require('nvim-treesitter.configs').setup {
     }
 }
 
+-- Loading
 require("telescope").load_extension("file_browser")
 require('onedark').load()

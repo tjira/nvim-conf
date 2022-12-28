@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
             if vim.fn.has('unix') == 1 then
                 local opt = { silent = true }
                 vim.keymap.set('n', '<F5>', ':TermExec cmd="clear" open=0<CR>:TermExec cmd="./%:t:r"<CR>', opt)
-                vim.keymap.set('n', '<F6>', ':TermExec cmd="clear" open=0<CR>:TermExec cmd="bear make %:t:r"<CR>', opt)
+                vim.keymap.set('n', '<F6>', ':TermExec cmd="clear" open=0<CR>:TermExec cmd="make %:t:r"<CR>', opt)
             else
                 local opt = { silent = true }
                 vim.keymap.set('n', '<F5>', ':TermExec cmd="clear" open=0<CR>:TermExec cmd="%:t:r"<CR>', opt)
