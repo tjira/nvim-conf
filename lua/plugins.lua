@@ -42,7 +42,7 @@ return require('packer').startup({function(use)
                 ['<Down>'] = cmp.mapping.select_next_item(select_opts),
                 ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                ['<ESC>'] = cmp.mapping.abort(),
+                ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             },
             sources = cmp.config.sources{
@@ -69,11 +69,7 @@ return require('packer').startup({function(use)
 
     -- Noice
     use { 'folke/noice.nvim', requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' }, config = function()
-        require('noice').setup{
-            messages = {
-                view_warn = false
-            }
-        }
+        require('noice').setup{}
     end}
 
     -- Onedark
