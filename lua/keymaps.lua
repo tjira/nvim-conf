@@ -27,14 +27,14 @@ vim.keymap.set('n', '<leader>nh', [[:noh<CR>]], { silent = true })
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
     pattern = { "python" },
     callback = function(event)
-        vim.keymap.set('n', '<F5>', [[:TermExec cmd="clear" open=0<CR>:TermExec cmd="python %"<CR>]], { buffer = 0, silent = true })
+        vim.keymap.set('n', '<F5>', [[:w<CR>:TermExec cmd="clear" open=0<CR>:TermExec cmd="python %"<CR>]], { buffer = 0, silent = true })
     end
 })
 
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
     pattern = { "cpp" },
     callback = function(event)
-        vim.keymap.set('n', '<F5>', [[:TermExec cmd="clear" open=0<CR>:TermExec cmd="./%:t:r"<CR>]], { buffer = 0, silent = true })
+        vim.keymap.set('n', '<F5>', [[:w<CR>:TermExec cmd="clear" open=0<CR>:TermExec cmd="./%:t:r"<CR>]], { buffer = 0, silent = true })
     end
 })
 
@@ -42,9 +42,9 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
     callback = function(event)
         if vim.fn.findfile('makefile') == 'makefile' then
             if vim.fn.has('unix') == 1 then
-                vim.keymap.set('n', '<F6>', [[:TermExec cmd="clear" open=0<CR>:TermExec cmd="make %:t:r"<CR>]], { silent = true })
+                vim.keymap.set('n', '<F6>', [[:w<CR>:TermExec cmd="clear" open=0<CR>:TermExec cmd="make %:t:r"<CR>]], { silent = true })
             else
-                vim.keymap.set('n', '<F6>', [[:TermExec cmd="clear" open=0<CR>:TermExec cmd="mingw32-make %:t:r"<CR>]], { silent = true })
+                vim.keymap.set('n', '<F6>', [[:w<CR>:TermExec cmd="clear" open=0<CR>:TermExec cmd="mingw32-make %:t:r"<CR>]], { silent = true })
             end
         end
     end
