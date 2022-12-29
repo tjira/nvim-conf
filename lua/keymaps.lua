@@ -10,8 +10,11 @@ vim.keymap.set('n', '<F6>', [[:w<CR>:TermExec cmd="clear" open=0<CR>:TermExec cm
 vim.keymap.set('n', '<F12>', [[:e $XDG_CONFIG_HOME/nvim/init.lua<CR>:cd %:p:h<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Down>', [[:m+1<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Up>', [[:m-2<CR>]], { noremap = true, silent = true })
+vim.keymap.set('n', '<C-C>', '"*y', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-D>', [[<C-D>zz]], { noremap = true, silent = true })
 vim.keymap.set('n', '<C-U>', [[<C-U>zz]], { noremap = true, silent = true })
+vim.keymap.set('n', '<C-V>', '"*p', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-X>', '"*d', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bc', [[:enew<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bd', [[:bdelete<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>bn', [[:BufferLineCycleNext<CR>]], { noremap = true, silent = true })
@@ -28,6 +31,9 @@ vim.keymap.set('n', '<leader>sl', [[:.s/\<<C-r><C-w>\>//g<Left><Left><C-r><C-w>]
 vim.keymap.set('n', '<leader>tg', [[:lua ToggleLazyGit()<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', 'N', 'Nzz', { noremap = true, silent = true })
 vim.keymap.set('n', 'n', 'nzz', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-C>', '"*y', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-V>', '"*p', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-X>', '"*d', { noremap = true, silent = true })
 
 if vim.g.neovide == true then
     vim.keymap.set('n', '<F11>', [[:let g:neovide_fullscreen = !g:neovide_fullscreen<CR>]], { noremap = true, silent = true })
