@@ -5,7 +5,7 @@ require("nvim-autopairs").setup{}
 require('bufferline').setup{
     options = {
         separator_style = 'slant',
-        show_buffer_close_icons = false,
+        show_buffer_close_icons = true,
         show_close_icon = false
     }
 }
@@ -41,6 +41,7 @@ require('cmp').setup{
 require('hop').setup{}
 
 -- LSP Config Pyright
+-- Linux: npm install -g pyright
 if vim.fn.has('unix') == 1 then
     require('lspconfig')['pyright'].setup{
         capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -48,11 +49,11 @@ if vim.fn.has('unix') == 1 then
 end
 
 -- LSP Config Clangd
-if vim.fn.has('unix') == 1 then
-    require('lspconfig')['clangd'].setup{
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
-    }
-end
+-- Linux: sudo apt install clangd
+-- Windows: choco install llvm, PATH=mingw64/bin;chocolatey/bin;LLVM/bin
+require('lspconfig')['clangd'].setup{
+    capabilities = require('cmp_nvim_lsp').default_capabilities()
+}
 
 -- Lualine
 require('lualine').setup{
