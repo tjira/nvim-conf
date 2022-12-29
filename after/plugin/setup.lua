@@ -123,5 +123,6 @@ require('nvim-treesitter.configs').setup {
 
 -- Loading
 vim.keymap.set('i', '<F1>', '<nop>', { silent = true })
+require("luasnip.loaders.from_snipmate").lazy_load()
 require("telescope").load_extension("file_browser")
 require('onedark').load()
