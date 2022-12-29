@@ -41,14 +41,18 @@ require('cmp').setup{
 require('hop').setup{}
 
 -- LSP Config Pyright
-require('lspconfig')['pyright'].setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities()
-}
+if vim.fn.has('unix') == 1 then
+    require('lspconfig')['pyright'].setup{
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
+    }
+end
 
 -- LSP Config Clangd
-require('lspconfig')['clangd'].setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities()
-}
+if vim.fn.has('unix') == 1 then
+    require('lspconfig')['clangd'].setup{
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
+    }
+end
 
 -- Lualine
 require('lualine').setup{

@@ -1,8 +1,7 @@
 local terminal  = require('toggleterm.terminal').Terminal
-local lazygit = terminal:new({ cmd = "lazygit", dir = "git_dir", direction = "float", hidden = true })
 
-function ToggleLazygit()
-  lazygit:toggle()
+function ToggleLazyGit()
+  terminal:new({ cmd = "lazygit", dir = "git_dir", direction = "float", hidden = true }):toggle()
 end
 
 vim.keymap.set('i', '<F1>', [[:UndotreeToggle<CR>]], { silent = true })
@@ -20,9 +19,10 @@ vim.keymap.set('n', '<leader>fg', [[:UndotreeHide<CR>:Telescope live_grep<CR>]],
 vim.keymap.set('n', '<leader>fh', [[:UndotreeHide<CR>:Telescope help_tags<CR>]], { silent = true })
 vim.keymap.set('n', '<leader>ha', [[:HopAnywhere<CR>]], { silent = true })
 vim.keymap.set('n', '<leader>hl', [[:HopAnywhereCurrentLine<CR>]], { silent = true })
-vim.keymap.set('n', '<leader>sg', [[:%s/\<<C-r><C-w>\>//g<Left><Left><C-r><C-w>]])
-vim.keymap.set('n', '<leader>tg', [[:lua ToggleLazygit()<CR>]], { silent = true })
 vim.keymap.set('n', '<leader>nh', [[:noh<CR>]], { silent = true })
+vim.keymap.set('n', '<leader>sg', [[:%s/\<<C-r><C-w>\>//g<Left><Left><C-r><C-w>]])
+vim.keymap.set('n', '<leader>tg', [[:lua ToggleLazyGit()<CR>]], { silent = true })
+vim.keymap.set('n', '<leader>vc', [[:e $XDG_CONFIG_HOME/nvim/init.lua<CR>]], { silent = true })
 
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
     pattern = { "python" },
