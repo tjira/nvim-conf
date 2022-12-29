@@ -40,7 +40,22 @@ require('cmp').setup{
 -- Hop
 require('hop').setup{}
 
--- LSP Config Pyright
+-- LSP Config Bash
+-- Linux: npm install -g bash-language-server
+if vim.fn.has('unix') == 1 then
+    require('lspconfig')['bashls'].setup{
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
+    }
+end
+
+-- LSP Config C++
+-- Linux: sudo apt install clangd
+-- Windows: choco install llvm, PATH=mingw64/bin;chocolatey/bin;LLVM/bin
+require('lspconfig')['clangd'].setup{
+    capabilities = require('cmp_nvim_lsp').default_capabilities()
+}
+
+-- LSP Config Python
 -- Linux: npm install -g pyright
 if vim.fn.has('unix') == 1 then
     require('lspconfig')['pyright'].setup{
@@ -48,12 +63,13 @@ if vim.fn.has('unix') == 1 then
     }
 end
 
--- LSP Config Clangd
--- Linux: sudo apt install clangd
--- Windows: choco install llvm, PATH=mingw64/bin;chocolatey/bin;LLVM/bin
-require('lspconfig')['clangd'].setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities()
-}
+-- LSP Config Vimscript
+-- Linux: npm install -g vim-language-server
+if vim.fn.has('unix') == 1 then
+    require('lspconfig')['vimls'].setup{
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
+    }
+end
 
 -- Lualine
 require('lualine').setup{
