@@ -7,6 +7,7 @@ end
 vim.keymap.set('n', '<ESC>', [[<ESC>:noh<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<F2>', [[:UndotreeToggle<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<F6>', [[:w<CR>:TermExec cmd="clear" open=0<CR>:TermExec cmd="make %:t:r"<CR>]], { noremap = true, silent = true })
+vim.keymap.set('n', '<F12>', [[:e $XDG_CONFIG_HOME/nvim/init.lua<CR>:cd %:p:h<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Down>', [[:m+1<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Up>', [[:m-2<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', '<C-D>', [[<C-D>zz]], { noremap = true, silent = true })
@@ -25,7 +26,6 @@ vim.keymap.set('n', '<leader>hl', [[:HopAnywhereCurrentLine<CR>]], { noremap = t
 vim.keymap.set('n', '<leader>sg', [[:%s/\<<C-r><C-w>\>//g<Left><Left><C-r><C-w>]], { noremap = true })
 vim.keymap.set('n', '<leader>sl', [[:.s/\<<C-r><C-w>\>//g<Left><Left><C-r><C-w>]], { noremap = true })
 vim.keymap.set('n', '<leader>tg', [[:lua ToggleLazyGit()<CR>]], { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>vc', [[:e $XDG_CONFIG_HOME/nvim/init.lua<CR>:cd %:p:h<CR>]], { noremap = true, silent = true })
 vim.keymap.set('n', 'N', 'Nzz', { noremap = true, silent = true })
 vim.keymap.set('n', 'n', 'nzz', { noremap = true, silent = true })
 
