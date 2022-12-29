@@ -10,10 +10,10 @@ vim.opt.smarttab = true
 vim.opt.softtabstop = 4
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
+vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.wrap = false
 vim.opt.writebackup = false
-vim.opt.autochdir = true
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -31,6 +31,7 @@ vim.cmd('let g:loaded_perl_provider = 0')
 vim.cmd('let g:loaded_ruby_provider = 0')
 vim.cmd('set shortmess+=I')
 vim.cmd('set noshowmode')
+vim.cmd('silent! mkspell $XDG_CONFIG_HOME/nvim/spell/en.utf-8.add')
 
 if vim.fn.has('win32') == 1 then
     vim.cmd("let &shell = 'powershell'")
@@ -41,4 +42,5 @@ if vim.fn.has('win32') == 1 then
 end
 
 require('plugins')
+require('autocommands')
 require('keymaps')
