@@ -42,5 +42,4 @@ if vim.fn.has('win32') == 1 then
 end
 
 require('plugins')
-require('autocommands')
 require('keymaps')
