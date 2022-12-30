@@ -17,6 +17,8 @@ You also need to add the *nodejs* binary to your PATH variable.
 Code completion is done with LSP servers. To install all the servers that the configuration utilizes, execute the two following commands.
 ```bash
 npm install -g bash-language-server pyright vim-language-server
+```
+```bash
 sudo apt install clangd
 ```
 Clangd can also be downloaded from the official [llvm-project](https://github.com/llvm/llvm-project) repository.
