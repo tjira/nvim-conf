@@ -1,3 +1,5 @@
+vim.cmd('colorscheme kanagawa')
+
 -- Autopaird
 require("nvim-autopairs").setup{}
 
@@ -26,14 +28,44 @@ require('cmp').setup{
     mapping = require('cmp').mapping.preset.insert{
         ['<Up>'] = require('cmp').mapping.select_prev_item(select_opts),
         ['<Down>'] = require('cmp').mapping.select_next_item(select_opts),
-        ['<C-b>'] = require('cmp').mapping.scroll_docs(-4),
-        ['<C-f>'] = require('cmp').mapping.scroll_docs(4),
-        ['<C-e>'] = require('cmp').mapping.abort(),
+        ['<C-S-Up>'] = require('cmp').mapping.scroll_docs(-4),
+        ['<C-S-Down>'] = require('cmp').mapping.scroll_docs(4),
         ['<CR>'] = require('cmp').mapping.confirm({ select = true }),
+        ['<ESC>'] = require('cmp').mapping.abort(),
+        ["<Tab>"] = require('cmp').mapping(function(fallback)
+            if require('cmp').visible() then
+                require('cmp').select_next_item()
+            elseif require('luasnip').expand_or_jumpable() then
+                require('luasnip').expand_or_jump()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        ["<S-Tab>"] = require('cmp').mapping(function(fallback)
+            if require('cmp').visible() then
+                require('cmp').select_prev_item()
+            elseif require('luasnip').jumpable(-1) then
+                require('luasnip').jump(-1)
+            else
+                fallback()
+            end
+          end, { "i", "s" }),
     },
     sources = require('cmp').config.sources{
-        { name = 'nvim_lsp', keyword_length = 3 },
-        { name = 'luasnip', keyword_length = 3 }
+        {
+            name = 'nvim_lsp', 
+            keyword_length = 3,
+            max_item_count = 10,
+            entry_filter = function(entry, ctx)
+                if entry:get_kind() == 1 then return false end
+                if entry:get_kind() == 15 then return false end
+                return true
+            end
+        },
+        {
+            name = 'luasnip',
+            keyword_length = 3
+        }
     }
 }
 
@@ -41,7 +73,6 @@ require('cmp').setup{
 require('hop').setup{}
 
 -- LSP Config Bash
--- Linux: npm install -g bash-language-server
 if vim.fn.has('unix') == 1 then
     require('lspconfig')['bashls'].setup{
         capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -49,14 +80,11 @@ if vim.fn.has('unix') == 1 then
 end
 
 -- LSP Config C++
--- Linux: sudo apt install clangd
--- Windows: choco install llvm, PATH=mingw64/bin;chocolatey/bin;LLVM/bin
 require('lspconfig')['clangd'].setup{
     capabilities = require('cmp_nvim_lsp').default_capabilities()
 }
 
 -- LSP Config Python
--- Linux: npm install -g pyright
 if vim.fn.has('unix') == 1 then
     require('lspconfig')['pyright'].setup{
         capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -64,7 +92,6 @@ if vim.fn.has('unix') == 1 then
 end
 
 -- LSP Config Vimscript
--- Linux: npm install -g vim-language-server
 if vim.fn.has('unix') == 1 then
     require('lspconfig')['vimls'].setup{
         capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -72,24 +99,10 @@ if vim.fn.has('unix') == 1 then
 end
 
 -- Lualine
-require('lualine').setup{
-    options = {
-        theme = 'onedark'
-    }
-}
+require('lualine').setup{}
 
 -- Noice
 require('noice').setup{}
-
--- Onedark
-require('onedark').setup{
-    style = 'deep',
-    diagnostics = {
-        darker = true,
-        undercurl = true,
-        background = true
-    }
-}
 
 -- Surround
 require('nvim-surround').setup{}
@@ -125,4 +138,3 @@ require('nvim-treesitter.configs').setup {
 vim.keymap.set('i', '<F1>', '<nop>', { silent = true })
 require("luasnip.loaders.from_snipmate").lazy_load()
 require("telescope").load_extension("file_browser")
-require('onedark').load()

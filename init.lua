@@ -27,11 +27,11 @@ vim.diagnostic.config{
     signs = true,
 }
 
+vim.cmd('silent! mkspell $XDG_CONFIG_HOME/nvim/spell/en.utf-8.add')
 vim.cmd('let g:loaded_perl_provider = 0')
 vim.cmd('let g:loaded_ruby_provider = 0')
 vim.cmd('set shortmess+=I')
 vim.cmd('set noshowmode')
-vim.cmd('silent! mkspell $XDG_CONFIG_HOME/nvim/spell/en.utf-8.add')
 
 if vim.fn.has('win32') == 1 then
     vim.cmd("let &shell = 'powershell'")

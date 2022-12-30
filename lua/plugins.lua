@@ -17,6 +17,9 @@ return require('packer').startup({function(use)
     -- Hop
     use { 'phaazon/hop.nvim' }
 
+    -- Kanagawa
+    use { 'rebelot/kanagawa.nvim' }
+
     -- LSP Config
     use { 'neovim/nvim-lspconfig' }
 
@@ -26,11 +29,11 @@ return require('packer').startup({function(use)
     -- Luasnip
     use { 'L3MON4D3/LuaSnip' }
 
+    -- Nightfox
+    use { 'EdenEast/nightfox.nvim' }
+
     -- Noice
     use { 'folke/noice.nvim', requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' } }
-
-    -- Onedark
-    use { 'navarasu/onedark.nvim' }
 
     -- Surround
     use { 'kylechui/nvim-surround' }

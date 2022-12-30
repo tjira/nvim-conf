@@ -1,9 +1,15 @@
+# cout
+snippet cout
+	std::cout << ${0} << std::endl;
+
+# fori
+snippet fori
+    for (${1:init}; ${2:cond}; ${3:inc}) {
+    	${0}
+    }
+
 # main
 snippet main
 	int main(int argc, char** argv) {
 		${0}
 	}
-
-# cout
-snippet cout
-	std::cout << ${0} << std::endl;

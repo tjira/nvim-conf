@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
     pattern = { "markdown" },
     callback = function(event)
         vim.cmd('setlocal spell')
+        vim.cmd('setlocal wrap')
     end
 })
 
