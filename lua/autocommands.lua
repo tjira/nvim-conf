@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
 vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
     pattern = { "markdown" },
     callback = function(event)
+        vim.keymap.set('n', '<F10>', [[:MarkdownPreview<CR>]], { noremap = true, silent = true })
         vim.cmd('setlocal spell')
         vim.cmd('setlocal wrap')
     end
