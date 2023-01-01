@@ -33,12 +33,16 @@ vim.cmd('let g:loaded_ruby_provider = 0')
 vim.cmd('set shortmess+=I')
 vim.cmd('set noshowmode')
 
+if vim.fn.has('unix') == 1 then
+    vim.cmd('let g:vimtex_view_method = "zathura"')
+end
+
 if vim.fn.has('win32') == 1 then
-    vim.cmd("let &shell = 'powershell'")
     vim.cmd("let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'")
-    vim.cmd("let &shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait'")
     vim.cmd("let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'")
+    vim.cmd("let &shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait'")
     vim.cmd("set shellquote= shellxquote=")
+    vim.cmd("let &shell = 'powershell'")
 end
 
 require('plugins')
