@@ -29,9 +29,6 @@ return require('packer').startup({function(use)
     -- Luasnip
     use { 'L3MON4D3/LuaSnip' }
     
-    -- Markdown Preview
-    use{ 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end }
-    
     -- Nightfox
     use { 'EdenEast/nightfox.nvim' }
 
