@@ -14,6 +14,9 @@ return require('packer').startup({function(use)
     -- Comment
     use { 'terrortylor/nvim-comment' }
 
+    -- Gitgutter
+    use { 'airblade/vim-gitgutter' }
+
     -- Hop
     use { 'phaazon/hop.nvim' }
 
