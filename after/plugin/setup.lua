@@ -73,11 +73,9 @@ require('cmp').setup{
 require('hop').setup{}
 
 -- LSP Config Bash
-if vim.fn.has('unix') == 1 then
-    require('lspconfig')['bashls'].setup{
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
-    }
-end
+require('lspconfig')['bashls'].setup{
+    capabilities = require('cmp_nvim_lsp').default_capabilities()
+}
 
 -- LSP Config C++
 require('lspconfig')['clangd'].setup{
@@ -85,18 +83,14 @@ require('lspconfig')['clangd'].setup{
 }
 
 -- LSP Config Python
-if vim.fn.has('unix') == 1 then
-    require('lspconfig')['pyright'].setup{
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
-    }
-end
+require('lspconfig')['pyright'].setup{
+    capabilities = require('cmp_nvim_lsp').default_capabilities()
+}
 
 -- LSP Config Vimscript
-if vim.fn.has('unix') == 1 then
-    require('lspconfig')['vimls'].setup{
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
-    }
-end
+require('lspconfig')['vimls'].setup{
+    capabilities = require('cmp_nvim_lsp').default_capabilities()
+}
 
 -- Lualine
 require('lualine').setup{}

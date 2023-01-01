@@ -4,7 +4,7 @@ This is a repository with my personal Neovim configuration.
 
 ## Requirements
 
-For all components of the configuration to work you will need some packages installed. This is due to the fact that some plugins use external tools. For git integration, configuration uses [lazygit](https://github.com/jesseduffield/lazygit) binary, that can be downloaded from the official repository. For code highlighting you will need to download Node.js with the following command.
+For all components of the configuration to work you will need some packages installed. This is due to the fact that some plugins use external tools. For git integration, configuration uses [lazygit](https://github.com/jesseduffield/lazygit) binary, that can be downloaded from the official repository. For code highlighting you will need to download node.js with the following command.
 ```bash
 curl -sL install-node.vercel.app/lts | bash -s -- --prefix=$HOME/nodejs -y
 ```
@@ -16,4 +16,4 @@ For C++ server you will need clang. You can install it with the following comman
 ```bash
 sudo apt install clangd
 ```
-Clangd binary can also be downloaded from the official [llvm-project](https://github.com/llvm/llvm-project) repository.
+Clangd binary can also be downloaded from the official [llvm-project](https://github.com/llvm/llvm-project) repository. All of the above packages can be installed on windows using the [chocolatey](https://chocolatey.org/install) package manager.
