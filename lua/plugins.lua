@@ -54,6 +54,10 @@ return require('packer').startup({function(use)
     
     -- Undotree
     use { 'mbbill/undotree' }
+
+    -- Vimtex
+    use { 'lervag/vimtex' }
+
 end,
 config = {
     display = {

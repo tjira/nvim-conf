@@ -32,3 +32,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
         vim.keymap.set('n', '<F5>', [[:w<CR>:TermExec cmd="clear" open=0<CR>:TermExec cmd="python %"<CR>]], { buffer = 0, noremap = true, silent = true })
     end
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+    pattern = { "tex" },
+    callback = function(event)
+        vim.keymap.set('n', '<F10>', [[:VimtexCompile<CR>]], { buffer = 0, noremap = true, silent = true })
+    end
+})
