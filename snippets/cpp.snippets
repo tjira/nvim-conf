@@ -2,6 +2,10 @@
 snippet cout
 	std::cout << ${0} << std::endl;
 
+# elapsed
+snippet elapsed
+	std::chrono::duration_cast<std::chrono::milliseconds>(${0}).count()
+
 # fori
 snippet fori
     for (${1:init}; ${2:cond}; ${3:inc}) {
@@ -13,3 +17,7 @@ snippet main
 	int main(int argc, char** argv) {
 		${0}
 	}
+
+# now
+snippet now
+	std::chrono::high_resolution_clock().now()
