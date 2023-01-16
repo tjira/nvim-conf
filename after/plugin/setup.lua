@@ -114,7 +114,7 @@ require('telescope').setup{
 
 -- Toggleterm
 require('toggleterm').setup{
-    direction = 'horizontal',
+    direction = 'float',
     open_mapping = '<F1>'
 }
 

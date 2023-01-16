@@ -11,29 +11,6 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-    pattern = { "cpp" },
-    callback = function(event)
-        vim.keymap.set('n', '<F5>', [[:w<CR>:TermExec cmd="clear" open=0<CR>:TermExec cmd="%:p:r"<CR>]], { buffer = 0, noremap = true, silent = true })
-    end
-})
-
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-    pattern = { "markdown" },
-    callback = function(event)
-        vim.keymap.set('n', '<F10>', [[:MarkdownPreview<CR>]], { noremap = true, silent = true })
-        vim.cmd('setlocal spell')
-        vim.cmd('setlocal wrap')
-    end
-})
-
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-    pattern = { "python" },
-    callback = function(event)
-        vim.keymap.set('n', '<F5>', [[:w<CR>:TermExec cmd="clear" open=0<CR>:TermExec cmd="python %"<CR>]], { buffer = 0, noremap = true, silent = true })
-    end
-})
-
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
     pattern = { "tex" },
     callback = function(event)
         vim.keymap.set('n', '<F10>', [[:VimtexCompile<CR>]], { buffer = 0, noremap = true, silent = true })
